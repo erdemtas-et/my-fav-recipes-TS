@@ -31,7 +31,7 @@ const RecipeForm = () => {
     setRecipeData((prev: IRecipe) => {
       return {
         ...prev,
-        [target.name]: target.value.trim(),
+        [target.name]: target.value,
       }
     })
   }

@@ -1,16 +1,15 @@
 import React, {useContext} from 'react'
 import {RecipeContext} from '../../context/RecipeContext'
+import RecipeList from '../../components/RecipeList/RecipeList'
 
 /* Components */
 import {Navbar} from '../../components/Navbar/Navbar'
-import {IRecipe, RecipeContextType} from '../../types/Recipe'
 
 const Dashboard = () => {
-  const {recipes} = useContext(RecipeContext) as RecipeContextType
-
   return (
     <div>
       <Navbar></Navbar>
+      <RecipeList />
     </div>
   )
 }

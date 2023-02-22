@@ -2,7 +2,7 @@ import {ReactNode} from 'react'
 
 export type IRecipe = {
   recipeTitle: string
-  recipeIngredients: string[]
+  recipeIngredients: string
   recipeMethod: string
   cookingTime: string
   id: number

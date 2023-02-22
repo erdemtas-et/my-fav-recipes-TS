@@ -1,8 +1,13 @@
+//Components - Types
 import React, {FormEvent, useState} from 'react'
 import Button from '../../components/Shared/Button/Button'
 import {IRecipe, RecipeContextType} from '../../types/Recipe'
 import {RecipeContext} from '../../context/RecipeContext'
 import {Navbar} from '../../components/Navbar/Navbar'
+
+//CSS
+import './NewRecipe.css'
+import '../../index.css'
 
 const RecipeForm = () => {
   const [recipeData, setRecipeData] = useState<IRecipe | any>({
@@ -34,19 +39,17 @@ const RecipeForm = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className='recipe-form'>
-        <h2>Add a New Recipe</h2>
-        <form onSubmit={(e) => handleSubmit(e, recipeData)}>
-          <label htmlFor=''>
-            Recipe Title
-            <input
-              name='recipeTitle'
-              type='text'
-              onChange={handleChange}
-              placeholder='Recipe Title'
-              value={recipeData.recipeTitle}
-            />
-          </label>
+
+      <h2 className='header-title'>Add a New Recipe</h2>
+      <form onSubmit={(e) => handleSubmit(e, recipeData)}>
+        <div className='recipe-form'>
+          <input
+            name='recipeTitle'
+            type='text'
+            onChange={handleChange}
+            placeholder='Recipe Title'
+            value={recipeData.recipeTitle}
+          />
 
           <input
             name='recipeIngredients'
@@ -69,8 +72,8 @@ const RecipeForm = () => {
             value={recipeData.cookingTime}
           />
           <Button buttonType='submit' buttonText='Submit' buttonClass='form-submit-btn' />
-        </form>
-      </div>
+        </div>
+      </form>
     </>
   )
 }

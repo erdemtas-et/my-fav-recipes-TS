@@ -5,7 +5,9 @@ import './Navbar.css'
 export const Navbar = () => {
   return (
     <div className='navbar'>
-      <nav>Content</nav>
+      <nav>
+        <img src='/public/images/recipe.png' alt='' />
+      </nav>
     </div>
   )
 }

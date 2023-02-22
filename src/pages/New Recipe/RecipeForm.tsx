@@ -61,14 +61,14 @@ const RecipeForm = () => {
           <textarea
             name='recipeMethod'
             onChange={handleChange}
-            placeholder='Recipe Title'
+            placeholder='Method'
             value={recipeData.recipeMethod}
           />
           <input
             name='cookingTime'
             type='text'
             onChange={handleChange}
-            placeholder='Recipe Title'
+            placeholder='Cooking Time'
             value={recipeData.cookingTime}
           />
           <Button buttonType='submit' buttonText='Submit' buttonClass='form-submit-btn' />

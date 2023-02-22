@@ -1,0 +1,12 @@
+.btn {
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.form-submit-btn {
+  background-color: rgb(48, 158, 247);
+  color: white;
+}

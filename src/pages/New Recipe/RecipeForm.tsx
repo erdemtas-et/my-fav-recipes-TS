@@ -5,11 +5,15 @@ import {IRecipe, RecipeContextType} from '../../types/Recipe'
 import {RecipeContext} from '../../context/RecipeContext'
 import {Navbar} from '../../components/Navbar/Navbar'
 
+//Navigation
+import {useNavigate} from 'react-router-dom'
+
 //CSS
 import './NewRecipe.css'
 import '../../index.css'
 
 const RecipeForm = () => {
+  //States
   const [recipeData, setRecipeData] = useState<IRecipe | any>({
     id: Math.random(),
     recipeTitle: '',
@@ -17,17 +21,27 @@ const RecipeForm = () => {
     recipeIngredients: '',
     recipeMethod: '',
   })
-  const {saveRecipe, recipes} = React.useContext(RecipeContext) as RecipeContextType
+  const [redirect, setRedirect] = useState<boolean>(false)
 
+  //Context
+  const {saveRecipe} = React.useContext(RecipeContext) as RecipeContextType
+
+  //Navigate
+  const navigate = useNavigate()
+
+  //Actions
   const handleSubmit = (e: FormEvent<HTMLFormElement>, formData: IRecipe | any) => {
+    setRedirect(true)
     e.preventDefault()
     saveRecipe(formData)
-    console.log(recipes)
+    setTimeout(() => {
+      navigate('/')
+      setRedirect(false)
+    }, 1000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     let target = e.target
-
     setRecipeData((prev: IRecipe) => {
       return {
         ...prev,
@@ -36,6 +50,7 @@ const RecipeForm = () => {
     })
   }
 
+  //Component Return
   return (
     <>
       <Navbar></Navbar>
@@ -49,6 +64,7 @@ const RecipeForm = () => {
             onChange={handleChange}
             placeholder='Recipe Title'
             value={recipeData.recipeTitle}
+            required
           />
 
           <input
@@ -57,12 +73,14 @@ const RecipeForm = () => {
             onChange={handleChange}
             placeholder='Recipe Ingredients'
             value={recipeData.recipeIngredients}
+            required
           />
           <textarea
             name='recipeMethod'
             onChange={handleChange}
             placeholder='Method'
             value={recipeData.recipeMethod}
+            required
           />
           <input
             name='cookingTime'
@@ -70,8 +88,13 @@ const RecipeForm = () => {
             onChange={handleChange}
             placeholder='Cooking Time'
             value={recipeData.cookingTime}
+            required
           />
-          <Button buttonType='submit' buttonText='Submit' buttonClass='form-submit-btn' />
+          <Button
+            buttonType='submit'
+            buttonText={redirect ? 'Saving..' : 'Submit'}
+            buttonClass='form-submit-btn'
+          />
         </div>
       </form>
     </>

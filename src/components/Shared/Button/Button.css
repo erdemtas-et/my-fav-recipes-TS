@@ -5,9 +5,24 @@
   cursor: pointer;
   font-weight: 900;
   width: 200px;
+  height: 40px;
 }
 
 .form-submit-btn {
   background-color: salmon;
   color: white;
+}
+
+.details-btn {
+  margin: 0 auto;
+  background-color: salmon;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.details-btn:hover {
+  width: 180px;
+  height: 35px;
+  background-color: rgb(197, 196, 196);
+  color: rgb(230, 82, 82);
 }

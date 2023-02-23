@@ -9,7 +9,17 @@ interface ChildProps {
 }
 
 const RecipeProvider: React.FC<ChildProps> = ({children}) => {
-  const [recipes, setRecipes] = React.useState<IRecipe[]>([])
+  const dummyRecipe: IRecipe = {
+    id: Math.random(),
+    recipeTitle: 'Enchiladas',
+    cookingTime: '40 minutes',
+    recipeIngredients:
+      'Tomatoes, Onion, Chicken 400gr,Tomatoes, Onion, Chicken 400gr,Tomatoes, Onion, Chicken 400gr',
+    recipeMethod:
+      'Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.',
+  }
+
+  const [recipes, setRecipes] = React.useState<IRecipe[]>([dummyRecipe])
 
   // context/todoContext.tsx
   const saveRecipe = (recipe: IRecipe) => {

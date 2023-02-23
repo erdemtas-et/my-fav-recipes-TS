@@ -1,5 +1,5 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 //CSS
 import './Navbar.css'
@@ -22,9 +22,15 @@ export const Navbar = () => {
       </div>
       <div className='nav-right'>
         <ul>
-          <li onClick={() => onClickMenu('/add')}>Add New Recipe</li>
-          <li onClick={() => onClickMenu('/')}>Recipes</li>
-          <li onClick={() => onClickMenu('/conversion')}>Unit Conversion</li>
+          <Link className='nav-link' to={'/add'}>
+            Add New Recipe
+          </Link>
+          <Link className='nav-link' to={'/'}>
+            Recipes
+          </Link>
+          <Link className='nav-link' to={'/unit-conversion'}>
+            Unit Conversion
+          </Link>
         </ul>
       </div>
     </nav>

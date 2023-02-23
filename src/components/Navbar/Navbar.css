@@ -20,21 +20,26 @@
 .nav-right > ul {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 10px;
   align-items: center;
   list-style-type: none;
 }
 
-.nav-right > ul > li {
+.nav-link {
   color: rgb(255, 255, 255);
   font-weight: 300;
   cursor: pointer;
   font-size: 0.9em;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.nav-right > ul > li:hover {
-  color: rgb(0, 24, 120);
-  font-size: 0.8em;
+.nav-link:hover {
+  color: salmon;
+  background-color: white;
+
   font-weight: 400;
 }
 

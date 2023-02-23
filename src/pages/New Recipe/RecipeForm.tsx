@@ -22,7 +22,7 @@ const RecipeForm = () => {
     recipeMethod: '',
   })
   const [redirect, setRedirect] = useState<boolean>(false)
-
+  const [ingredients, setIngredients] = useState<string[]>([])
   //Context
   const {saveRecipe} = React.useContext(RecipeContext) as RecipeContextType
 
@@ -50,6 +50,12 @@ const RecipeForm = () => {
     })
   }
 
+  const handleAdd = () => {
+    setIngredients((prev) => {
+      return [...prev, recipeData.recipeIngredients]
+    })
+  }
+
   //Component Return
   return (
     <>
@@ -66,15 +72,31 @@ const RecipeForm = () => {
             value={recipeData.recipeTitle}
             required
           />
+          <div>
+            <input
+              name='recipeIngredients'
+              type='text'
+              onChange={handleChange}
+              placeholder='Recipe Ingredients'
+              value={recipeData.recipeIngredients}
+              required
+            />
+            <Button
+              buttonFunc={handleAdd}
+              buttonClass='btn ingredients-btn'
+              buttonText='Add'
+              buttonType='button'
+            />
+          </div>
+          <div className='ingredient-div'>
+            Current Ingredients
+            <ul className='ingredient-list'>
+              {ingredients.map((ingredient) => {
+                return <li>{ingredient}</li>
+              })}
+            </ul>
+          </div>
 
-          <input
-            name='recipeIngredients'
-            type='text'
-            onChange={handleChange}
-            placeholder='Recipe Ingredients'
-            value={recipeData.recipeIngredients}
-            required
-          />
           <textarea
             name='recipeMethod'
             onChange={handleChange}

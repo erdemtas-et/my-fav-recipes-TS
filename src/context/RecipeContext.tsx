@@ -13,8 +13,9 @@ const RecipeProvider: React.FC<ChildProps> = ({children}) => {
     id: Math.random(),
     recipeTitle: 'Enchiladas',
     cookingTime: '40 minutes',
-    recipeIngredients:
+    recipeIngredients: [
       'Tomatoes, Onion, Chicken 400gr,Tomatoes, Onion, Chicken 400gr,Tomatoes, Onion, Chicken 400gr',
+    ],
     recipeMethod:
       'Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.Heat oven to 375°F. Spray 13x9-inch (3-quart) baking dish or pan with cooking spray.',
   }

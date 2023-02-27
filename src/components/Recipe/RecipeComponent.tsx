@@ -15,9 +15,13 @@ const RecipeComponent: FC<RecipeProps> = ({item}) => {
       <h1 className='recipe-title'>{item.recipeTitle}</h1>
       <p className='recipe-time'>Time : {item.cookingTime}</p>
       <p className='recipe-ingredients'>
-        {item.recipeIngredients.length > 70
-          ? item.recipeIngredients.substring(0, 70) + '...'
-          : item.recipeIngredients}
+        {item.recipeIngredients.map((ingredient) => {
+          return (
+            <ul>
+              <li>{ingredient}</li>
+            </ul>
+          )
+        })}
       </p>
       <p className='recipe-method'>
         {item.recipeMethod.length > 280

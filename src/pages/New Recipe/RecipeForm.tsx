@@ -18,7 +18,7 @@ const RecipeForm = () => {
     id: Math.random(),
     recipeTitle: '',
     cookingTime: '',
-    recipeIngredients: '',
+    recipeIngredients: [],
     recipeMethod: '',
   })
   const [redirect, setRedirect] = useState<boolean>(false)
@@ -53,6 +53,13 @@ const RecipeForm = () => {
   const handleAdd = () => {
     setIngredients((prev) => {
       return [...prev, recipeData.recipeIngredients]
+    })
+
+    setRecipeData((prev: IRecipe) => {
+      return {
+        ...prev,
+        recipeIngredients: ingredients,
+      }
     })
   }
 
